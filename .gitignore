@@ -364,3 +364,4 @@ FodyWeavers.xsd
 /DIT.MVC/wwwroot/lib/
 /DIT.MVC/appsettings.json
 dist
+appsettings.Development.json

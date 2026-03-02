@@ -31,6 +31,13 @@ public class EmailSenderService : IEmailSender
             string user = _config.GetValue<string>("smtp:user");
             string password = _config.GetValue<string>("smtp:Password");
             string enableSsl = _config.GetValue<string>("smtp:ssl", "true");
+            string certificateValidation = _config.GetValue<string>("smtp:certificatevalidation", "true") ?? "false";
+            // Disable certificate validation if specified in configuration
+            if (certificateValidation.CompareTo("false") == 0)
+            {
+                ServicePointManager.ServerCertificateValidationCallback = (sender, Certificate, chain, SslPolicyErrors) => true;
+                _logger.LogWarning("Certificate validation is disabled. This is not recommended for production environments.");
+            }
             _smtpClient = new SmtpClient
             {
                 UseDefaultCredentials = false,
@@ -68,6 +75,13 @@ public class EmailSenderService : IEmailSender
             string user = _config.GetValue<string>("smtp:user");
             string password = _config.GetValue<string>("smtp:Password");
             string enableSsl = _config.GetValue<string>("smtp:ssl", "true");
+            string certificateValidation = _config.GetValue<string>("smtp:certificatevalidation", "true")??"false";
+
+            if (certificateValidation.CompareTo("false") == 0)
+            {
+                ServicePointManager.ServerCertificateValidationCallback = (sender, Certificate, chain, SslPolicyErrors) => true;
+                _logger.LogWarning("Certificate validation is disabled. This is not recommended for production environments.");
+            }
 
             if (user != null && password != null)
             {
