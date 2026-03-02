@@ -1,0 +1,36 @@
+﻿@model ClubNotificationModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        let lijst=fetch('/api/notifications')
+            .then(response => response.json())
+            .then(data => {
+                var table = $('#notificaties').DataTable(
+                    {   "paging": true, 
+                        "pageLength": 10,
+                        "aaSorting": [0,'desc'],
+                        "data": data,
+                        "columns": [
+                            { data: 'id', title: 'Id'},
+                            { data: 'message', title: 'Message'},
+                            { data: 'userId' , title: 'Gebruiker' }
+                        ]
+                    }
+                );
+            });
+    });
+</script>
+@if (Model == null)
+{
+    <p>Geen datamodel aanwezig</p>
+}
+else
+{
+    <table id="notificaties" class="table table-striped">
+     
+    </table>
+}

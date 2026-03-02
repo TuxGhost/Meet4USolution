@@ -1,0 +1,76 @@
+﻿@model ModClubEvent
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="table table-striped">
+    <div class="row" hidden>
+        <div class="col">
+            <label for="id">Id</label>
+        </div>
+        <div class="col">
+            <input type="text" value="@Model.Id" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col form-label">
+            <label asp-for="NameNl">Titel</label>
+        </div>
+        <div class="col">
+            @Html.Raw(@Model.NameNl)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col form-label">
+            <label>Beschrijving</label>
+        </div>
+        <div class="col">
+            @Html.Raw(@Model.DescriptionNl)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label>Start</label>
+        </div>
+        <div class="col">
+            @Model.EventStart
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label>Einde</label>
+        </div>
+        <div class="col">
+            @Model.EventTill
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label>Gemeente</label>
+        </div>
+        <div class="col">
+            @Model.City
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label>Adres</label>
+        </div>
+        <div class="col">
+            @Model.Address
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label>zipcode</label>
+        </div>
+        <div class="col">
+            @Model.Zipcode
+        </div>
+    </div>    
+</div>
+<form>
+    <input type="submit" asp-action="EvenementEdit" asp-controller="club" asp-route-id="@Model.Id" class="btn btn-primary" value="Edit" />
+</form>
+<button class="btn btn-outline-primary" onclick="history.back();">Vorige pagina</button>
+@{
+}

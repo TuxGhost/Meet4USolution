@@ -1,0 +1,50 @@
+﻿@model ModClubUser
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<form asp-action="LidEditPost" asp-controller="Club" method="post">
+    <div class="row mb-3">
+        <label for="id" asp-for="@Model.Id">
+            Id
+        </label>
+        <input id="id" type="text" value="@Model.Id" asp-for="@Model.Id" readonly />
+    </div>
+    <div class="row mb-3">
+        <label>Voornaam</label>
+        <input type="text" value="@Model.Firstname" asp-for="@Model.Firstname" readonly />
+    </div>
+    <div class="row mb-3">
+        <label>Familienaam</label>
+        <input type="text" readonly value="@Model.Lastname" asp-for="@Model.Lastname"/>
+    </div>
+    <div class="row mb-3">
+        <label>E-mail</label>
+        <input type="text" value="@Model.Email" asp-for="@Model.Email"/>
+    </div>
+    <div class="row mb-3">
+        <label>Telefoon</label>
+        <input type="text" value="@Model.Telephone" asp-for="@Model.Telephone"/>
+    </div>
+    <div class="row mb-3">
+        <label>Geboortedatum</label>
+        <input type="datetime" readonly value="@Model.Dob" asp-for="@Model.Dob"/>
+    </div>
+    <div class="row mb-3">
+        <label>Gemeente</label>
+        <input type="text" value="@Model.City" asp-for="@Model.City"/>
+    </div>
+    <div class="row mb-3">
+        <label>Adres</label>
+        <input type="text" value="@Model.Address" asp-for="@Model.Address"/>
+    </div>
+    <input type="submit" value="Submit" class="btn btn-outline-primary" />
+
+    <div class="row">
+        <div class="col">
+            @Html.ValidationSummary()
+        </div>
+    </div>
+</form>
+<button class="btn btn-outline-primary" onclick="history.back();">Vorige pagina</button>
+@{
+}

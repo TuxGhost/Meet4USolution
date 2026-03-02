@@ -1,0 +1,39 @@
+﻿@model ClubUserModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@if(Model == null)
+{
+    <p>Geen datamodel aanwezig</p>
+}
+else
+{
+    <table id="lijst" class="table table-striped">
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>Voornaam</td>
+                <td>Familienaam</td>
+                <td>Geboortedatum</td>
+                <td>Stad</td>
+                <td>Postcode</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var lijn in Model.Users)
+            {
+                <tr>
+                    <td>@lijn.Id</td>
+                    <td>@lijn.Firstname</td>
+                    <td>@lijn.Lastname</td>
+                    <td>@lijn.Dob</td>
+                    <td>@lijn.City</td>
+                    <td>@lijn.Zipcode</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

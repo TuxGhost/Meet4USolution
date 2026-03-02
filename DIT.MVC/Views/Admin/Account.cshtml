@@ -1,0 +1,137 @@
+﻿@model IdentityUserModel
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@if (User == null)
+{
+    <p>No user selected</p>
+    return;
+}
+
+<div class="row">
+    <div class="col-3 gy-5">
+        <label asp-for=@Model.User.UserName col-1>User</label>
+    </div><div class="col gy-5">
+        <input asp-for=@Model.User.UserName type="text" value="@Model.User.UserName" readonly col-2 />
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <label>E-mail</label>
+    </div><div class="col">
+        <input type="text" value="@Model.User.Email" readonly />
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <label>E-mail confirmed</label>
+    </div>
+    <div class="col">
+        <form asp-action="ConfirmEmail" method="post">
+            <input type="text" id="id" name="id" value="@Model.User.Id" hidden/>
+            <input type="checkbox" value="@Model.User.EmailConfirmed" disabled />        
+            <input type="submit" value="Bevestig e-mail" class="btn btn-primary"/>
+        </form>        
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <label>Phone</label>
+    </div>
+    <div class="col-3">
+        <input type="text" value="@Model.User.PhoneNumber" readonly />
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <label>Phone</label>
+    </div>
+    <div class="col">
+        <input type="checkbox" value="@Model.User.PhoneNumberConfirmed" disabled />
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <label>Lockout enabled</label>
+    </div>
+    <div class="col">
+        <input type="checkbox" value="@Model.User.LockoutEnabled" disabled />
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <label>Lockout end</label>
+    </div>
+    <div class="col">
+        <input type="datetime" value="@Model.User.LockoutEnd" readonly />
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <label>Two factor enabled</label>
+    </div>
+    <div class="col">
+        <input type="checkbox" value="@Model.User.TwoFactorEnabled" disabled />
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <label>Security stamp</label>
+    </div>
+    <div class="col">
+        <input type="text" value="@Model.User.SecurityStamp" readonly />
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <label>Access failed count</label>
+    </div>
+    <div class="col">
+        <input type="number" value="@Model.User.AccessFailedCount" readonly />
+    </div>
+</div>
+
+<div>
+    <h4>Rollen</h4>
+    @foreach (var role in Model.UserRoles)
+    {
+        <div class="row">
+            <div class="col-2">
+                @role
+            </div>
+            <div class="col-2">
+                <form asp-action="RemoveUserRole" method="post">
+                    <input type="hidden" value="@Model.User.Id" id="userid" name="userid" />
+                    <input type="hidden" value="@role" id="rolename" name="rolename" />
+                    <input type="submit" value="Remove" />
+                </form>
+            </div>
+        </div>
+
+    }
+    <form asp-action="AddUserRole" method="post">
+        <input type="hidden" value="@Model.User.Id" id="userid" name="userid" />
+        <select id="availableroles" name="availableroles">
+            @foreach (var role in Model.AvailableRoles)
+            {
+                <option value="@role.Id">@role.Name</option>
+            }
+        </select>
+        <input type="hidden" id="roleid" name="roleid" />
+        <input type="submit" onclick="setSelectedRole()" value="Add" />
+    </form>
+    <form asp-action="RemoveAccount" method="post">
+        <input type="hidden" value="@Model.User.Id" id="id" name="id" />
+        <input type="submit" value="Remove account" />
+    </form>
+</div>
+
+<script>
+    function setSelectedRole() {
+        var selectedRoleId = document.querySelector('select[name="availableroles"]').value;
+        document.getElementById('roleid').value = selectedRoleId;
+    }
+</script>

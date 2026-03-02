@@ -1,0 +1,103 @@
+﻿@model ModClubUser
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<form asp-action="LidCreatePost" asp-controller="Club" method="post">
+    <div class="row mb-3" hidden>
+        <label for="id" asp-for="@Model.Id">
+            Id
+        </label>
+        <input id="id" type="text" value="@Model.Id" asp-for="@Model.Id" readonly />
+    </div>
+    <div class="row mb-3">
+        <label>Voornaam</label>
+        <input type="text" value="@Model.Firstname" asp-for="@Model.Firstname"/>
+    </div>
+    <div class="row mb-3">
+        <label>Familienaam</label>
+        <input type="text" value="@Model.Lastname" asp-for="@Model.Lastname"/>
+    </div>
+    <div class="row mb-3">
+        <label>Username</label>
+        <input type="text" value="@Model.Username" asp-for="@Model.Username" />
+    </div>
+    <div class="row mb-3">
+        <label>Geslacht</label>
+        <input type="radio" name="Gender" value="m" checked="@Model.Gender == "m" asp-for="@Model.Gender"/> Man
+        <input type="radio" name="Gender" value="f" checked="@Model.Gender == "f" asp-for="@Model.Gender" /> Vrouw
+    </div>
+    <div class="row mb-3">
+        <label>E-mail</label>
+        <input type="text" value="@Model.Email" asp-for="@Model.Email"/>
+    </div>
+    <div class="row mb-3">
+        <label>Telefoon</label>
+        <input type="text" value="@Model.Telephone" asp-for="@Model.Telephone"/>
+    </div>
+    <div class="row mb-3">
+        <label>Telefoon 2</label>
+        <input type="text" value="@Model.Telephone2" asp-for="@Model.Telephone2" />
+    </div>
+    <div class="row mb-3">
+        <label>Geboortedatum</label>
+        <input type="datetime" value="@Model.Dob" asp-for="@Model.Dob"/>
+    </div>
+    <div class="row mb-3">
+        <label>Gemeente</label>
+        <input type="text" value="@Model.City" asp-for="@Model.City"/>
+    </div>
+    <div class="row mb-3">
+        <label>Adres</label>
+        <input type="text" value="@Model.Address" asp-for="@Model.Address"/>
+    </div>
+    <div class="row mb-3">
+        <label>Postcode</label>
+        <input type="text" value="@Model.Zipcode" asp-for="@Model.Zipcode" />
+    </div>
+    <div class="row mb-3">
+        <label>Land</label>
+        <input type="text" value="@Model.Country" asp-for="@Model.Country" maxlength="2" />
+    </div>
+    <div class="row mb-3">
+        <label>Type</label>
+        <input type="text" value="@Model.Type" asp-for="@Model.Type" />
+    </div>
+    <div class="row mb-3">
+        <label>Board type</label>
+        <input type="string" value="@Model.BoardType" asp-for="@Model.BoardType" />
+    </div>
+    <div class="row mb-3">
+        <label>Board member</label>
+        <input type="string" value="@Model.BoardMember" asp-for="@Model.BoardMember" />
+    </div>
+    <div class="row mb-3">
+        <label>Board function</label>
+        <input type="text" value="@Model.BoardFunction" asp-for="@Model.BoardFunction" />
+    </div>
+    <div class="row mb-3">
+        <label>Commentaar</label>
+        <input type="text" value="@Model.Comments" asp-for="@Model.Comments" />
+    </div>
+    <div class="row mb-3">
+        <label>Commentaar intern</label>
+        <input type="text" value="@Model.CommentsIntern" asp-for="@Model.CommentsIntern" />
+    </div>
+    <div class="row mb-3">
+        <label>Referrer</label>
+        <input type="text" value="@Model.Referrer" asp-for="@Model.Referrer" />
+    </div>
+    <div class="row mb-3">
+        <label>Referrer extra info</label>
+        <input type="text" value="@Model.ReferrerExtra" asp-for="@Model.ReferrerExtra" />
+    </div>
+    <input type="submit" value="Submit" class="btn btn-outline-primary" />
+
+    <div class="row">
+        <div class="col">
+            @Html.ValidationSummary()
+        </div>
+    </div>
+</form>
+<button class="btn btn-outline-primary" onclick="history.back();">Vorige pagina</button>
+@{
+}

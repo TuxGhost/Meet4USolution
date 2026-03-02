@@ -1,0 +1,46 @@
+﻿@model ModClubUser
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+    <div class="row mb-3">
+        <label for="id">
+            Id
+        </label>
+        <input id="id" type="text" value="@Model.Id" readonly />
+
+    </div>
+    <div class="row mb-3">
+        <label>Voornaam</label>
+        <input type="text" value="@Model.Firstname" readonly />
+    </div>
+    <div class="row mb-3">
+        <label>Familienaam</label>
+        <input type="text" readonly value="@Model.Lastname" />
+    </div>
+    <div class="row mb-3">
+        <label>E-mail</label>
+        <input type="text" readonly value="@Model.Email" />
+    </div>
+    <div class="row mb-3">
+        <label>Telefoon</label>
+        <input type="text" readonly value="@Model.Telephone" />
+    </div>
+    <div class="row mb-3">
+        <label>Geboortedatum</label>
+        <input type="datetime" readonly value="@Model.Dob" />
+    </div>
+    <div class="row mb-3">
+        <label>Gemeente</label>
+        <input type="text" readonly value="@Model.City" />
+    </div>
+    <div class="row mb-3">
+        <label>Adres</label>
+        <input type="text" readonly value="@Model.Address" />
+    </div>
+<form>
+    <input type="submit" asp-action="LidEdit" asp-controller="club" asp-route-id="@Model.Id" class="btn btn-primary" value="Edit" />
+</form>
+<button class="btn btn-outline-primary" onclick="history.back();">Vorige pagina</button>
+@{
+}

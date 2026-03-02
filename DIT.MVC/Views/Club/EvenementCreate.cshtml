@@ -1,0 +1,112 @@
+﻿@model ModClubEvent
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<form asp-action="EvenementCreatePost" asp-controller="Club" method="post">
+    <h3>Nieuw evenement</h3>
+    <div class="table table-striped">
+        <div class="row" hidden>
+            <div class="col">
+                <label for="Id">Id</label>
+            </div>
+            <div class="col">
+                <input id="Id" type="text" asp-for="@Model.Id" value="@Model.Id" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label asp-for="NameNl">Title</label>
+            </div>
+            <div class="col">
+                <input id="NameNl" type="text" asp-for="@Model.NameNl" value="@Model.NameNl" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col form-label">
+                <label asp-for="DescriptionNl">Beschrijving</label>
+            </div>
+            <div class="col">
+                <input id="DescriptionNl" type="text" asp-for="@Model.DescriptionNl" value="@Model.DescriptionNl" />
+                <span asp-validation-for="Id"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label asp-for="EventStart">Start</label>
+            </div>
+            <div class="col">
+                <input id="EventStart" type="datetime" asp-for="@Model.EventStart" value="@Model.EventStart" />
+                <input id="EventRepeat" type="text" asp-for="@Model.EventRepeat" value="@Model.EventRepeat" hidden/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label asp-for="EventTill">Einde</label>
+            </div>
+            <div class="col">
+                <input id="EventTill "type="datetime" asp-for="@Model.EventTill" value="@Model.EventTill" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label asp-for="City">Gemeente</label>
+            </div>
+            <div class="col">
+                <input id="City "type="text" asp-for="@Model.City" value="@Model.City" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label asp-for="Address">Adres</label>
+            </div>
+            <div class="col">
+                <input id="Address" type="text" asp-for="@Model.Address" value="@Model.Address" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label asp-for="Zipcode">zipcode</label>
+            </div>
+            <div class="col">
+                <input id="Zipcode" type="number" asp-for=Zipcode value="@Model.Zipcode" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label asp-for="Country">Country</label>
+            </div>
+            <div class="col">
+                <input id="Country" type="text" asp-for="@Model.Country" value="@Model.Country" />
+            </div>
+        </div>
+        <div class="row" hidden>
+            <div class="col">
+                <label asp-for="Image">Image</label>
+            </div>
+            <div class="col">
+                <input type="text" id="Image"asp-for="Image" value="@Model.Image" />                
+            </div>
+        </div>
+        <div class="row" hidden>
+            <div class="col">
+                <label asp-for="AliasNl">Alias</label>
+            </div>
+            <div class="col">
+                <input type="text" id="Alias" asp-for="AliasNl" value="@Model.AliasNl">                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">                
+                <input type="submit" value="Submit" class="btn btn-outline-primary" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                @Html.ValidationSummary()
+            </div>
+        </div>
+    </div>
+</form>
+<button class="btn btn-outline-primary" onclick="history.back();">Vorige pagina</button>
+@{
+}

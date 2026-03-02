@@ -1,0 +1,78 @@
+﻿@model ClubEventModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        let lijst = fetch('/api/events')
+            .then(response => response.json())
+            .then(data => {
+                var table = $('#lijst').DataTable({
+                    "data": data,
+                    "columns": [
+                        { data: 'id', title: 'Id' , visible: false , searchable: false },
+                        {
+                            data: 'eventStart', title: 'Datum', render: function (data) {
+                                // format data as dd/mm/yyyy
+                                var date = new Date(data);
+                                var day = date.getDate();
+                                var month = date.getMonth() + 1;
+                                var year = date.getFullYear();
+                                return `${day}/${month}/${year}`;
+                            }
+                        },
+                        { data: 'nameNl', title: 'Beschrijving' },                        
+                        { data: 'city', title: 'Gemeente' }
+                    ],
+                    "paging": true,
+                    "pageLength": 10,
+                    "select": 'single',
+                    "aaSorting": [0, 'desc']
+                });
+                $('#lijst tbody').on('dblclick', 'tr', function () {
+                    console.log("double click");
+                    var selectedData = table.row(this).data();
+                    console.log(`selected ${selectedData}`);
+                    window.location.href = `/club/evenement/${selectedData.id}`;
+                });
+            });
+    });
+</script>
+@if (Model == null)
+{
+    <p>Geen datamodel aanwezig</p>
+}
+else
+{
+    <table id="lijst" class="table table-striped">
+        @*  <thead>
+    <tr>
+    <td>id</td>
+    <td>Omschrijving</td>
+    <td>Datum</td>
+    <td>Adres</td>
+    <td>Stad</td>
+    <td>Postcode</td>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var lijn in Model.Events)
+    {
+    <tr>
+    <td><a href="/club/evenement/@lijn.Id">@lijn.Id</a></td>
+    <td>@lijn.DescriptionNl</td>
+    <td>@lijn.EventStart</td>
+    <td>@lijn.Address</td>
+    <td>@lijn.City</td>
+    <td>@lijn.Zipcode</td>
+    </tr>
+    }
+    </tbody> *@
+    </table>
+    <form asp-action="EvenementCreate">
+        <input type="submit" class="btn btn-primary" value="Nieuw evenement" />
+    </form>
+
+}

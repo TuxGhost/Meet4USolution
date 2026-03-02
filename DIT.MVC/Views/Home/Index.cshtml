@@ -1,0 +1,21 @@
+﻿@model CalendarModel
+@{    
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@Model.Datum.ToLongDateString()</h1>  
+    
+</div>
+<div class="container" >
+    <div class="row">
+    @foreach(var dag in Model.WeekDays)
+    {
+        
+        <div class="col day @(dag.Datum.Date == DateTime.Now.Date? "today" : "")">
+                @dag.Name 
+                <p>@dag.Datum.ToShortDateString()</p>
+        </div>        
+    }
+    </div>                    
+</div>

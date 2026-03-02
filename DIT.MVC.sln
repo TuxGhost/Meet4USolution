@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DIT.MVC", "DIT.MVC\DIT.MVC.csproj", "{75A9101B-9F0F-4E41-B416-B9896FAE4D17}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dit.services", "dit.services\dit.services\dit.services.csproj", "{7C21BF29-0668-492B-A651-603D1A5ADE0E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dit.database.net", "dit.services\dit.database.net\dit.database.net\dit.database.net.csproj", "{24EEFBEF-D459-412A-88BC-A4FAEC5DD0CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solutions Items", "Solutions Items", "{BF0424C6-31EF-4788-8858-248EC46970C5}"
+	ProjectSection(SolutionItems) = preProject
+		DIT.MVC\.eslintrc.json = DIT.MVC\.eslintrc.json
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75A9101B-9F0F-4E41-B416-B9896FAE4D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75A9101B-9F0F-4E41-B416-B9896FAE4D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75A9101B-9F0F-4E41-B416-B9896FAE4D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75A9101B-9F0F-4E41-B416-B9896FAE4D17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C21BF29-0668-492B-A651-603D1A5ADE0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C21BF29-0668-492B-A651-603D1A5ADE0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C21BF29-0668-492B-A651-603D1A5ADE0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C21BF29-0668-492B-A651-603D1A5ADE0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24EEFBEF-D459-412A-88BC-A4FAEC5DD0CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24EEFBEF-D459-412A-88BC-A4FAEC5DD0CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24EEFBEF-D459-412A-88BC-A4FAEC5DD0CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24EEFBEF-D459-412A-88BC-A4FAEC5DD0CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4BFAC7F8-CD15-4C33-ACDD-2130F9B9A4D4}
+	EndGlobalSection
+EndGlobal
