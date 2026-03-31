@@ -19,6 +19,17 @@
     },
     "DIT.MVC 8": {
       "commandName": "Project",
+      "commandLineArgs": "--framework 8.0",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7114;http://localhost:5268"
+    },
+    "DIT.MVC 10": {
+      "commandName": "Project",
+      "commandLineArgs": "--framework 10.0",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
