@@ -32,10 +32,10 @@ public class ClubController : Controller
     public async Task<IActionResult> Leden()
     {
         var leden = await club.GetUsersAsync();
-        if (leden != null)
-            ClubUserModel.Users = leden;
+        if (leden != null && User.IsInRole("Administrator"))
+                ClubUserModel.Users = leden;            
         else
-            ClubUserModel.Message = "De data kon niet geladen worden";
+                ClubUserModel.Message = "De data kon niet geladen worden";
 
         return View(ClubUserModel);
     }
@@ -43,7 +43,7 @@ public class ClubController : Controller
     public async Task<IActionResult> LedenJson()
     {
         var leden = await club.GetUsersAsync();
-        if (leden != null)
+        if (leden != null && (User.IsInRole("Admin") ||User.IsInRole("Administrator")))
             ClubUserModel.Users = leden;
         else
             ClubUserModel.Message = "De data kon niet geladen worden";

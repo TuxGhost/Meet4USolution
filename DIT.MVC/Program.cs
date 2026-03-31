@@ -25,7 +25,9 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddTransient<IClubService, Club>();
 
 builder.Services.AddDefaultIdentity<DITUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+    
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
