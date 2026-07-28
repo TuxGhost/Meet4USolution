@@ -42,7 +42,7 @@
         <label>Phone</label>
     </div>
     <div class="col-3">
-        <input type="text" value="@Model.User.PhoneNumber" readonly />
+        <input type="text" value="@Model.User.PhoneNumber" readonly class="form-control" />
     </div>
 </div>
 <div class="row">
@@ -127,6 +127,7 @@
         <input type="hidden" value="@Model.User.Id" id="id" name="id" />
         <input type="submit" value="Remove account" />
     </form>
+    <button class="btn btn-outline-primary mt-5 " onclick="history.back();">Vorige pagina</button>
 </div>
 
 <script>

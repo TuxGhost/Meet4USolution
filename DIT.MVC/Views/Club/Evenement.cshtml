@@ -12,42 +12,42 @@
         </div>
     </div>
     <div class="row">
-        <div class="col form-label">
+        <div class="col form-label col-md-3 mb-3">
             <label asp-for="NameNl">Titel</label>
         </div>
-        <div class="col">
+        <div class="col col-md-6 mb-3">
             @Html.Raw(@Model.NameNl)
         </div>
     </div>
     <div class="row">
-        <div class="col form-label">
+        <div class="col form-label col-md-3 mb-3">
             <label>Beschrijving</label>
         </div>
-        <div class="col">
+        <div class="col col-md-6 mb-3">
             @Html.Raw(@Model.DescriptionNl)
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col col-md-3 mb-3">
             <label>Start</label>
         </div>
-        <div class="col">
+        <div class="col col-md-6 mb-3">
             @Model.EventStart
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col col-md-3 mb-3">
             <label>Einde</label>
         </div>
-        <div class="col">
+        <div class="col col-md-6 mb-3">
             @Model.EventTill
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col col-md-3 mb-3">
             <label>Gemeente</label>
         </div>
-        <div class="col">
+        <div class="col col-md-6 mb-3">
             @Model.City
         </div>
     </div>
@@ -55,15 +55,15 @@
         <div class="col">
             <label>Adres</label>
         </div>
-        <div class="col">
+        <div class="col col-md-6 mb-3">
             @Model.Address
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col col-md-3 mb-3">
             <label>zipcode</label>
         </div>
-        <div class="col">
+        <div class="col col-md-6 mb-3">
             @Model.Zipcode
         </div>
     </div>    

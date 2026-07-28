@@ -3,6 +3,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
     entry: './js/app.js',
+    mode: "production",
     output: {
         filename: 'bootstrap-dit.js',
         path: path.resolve(__dirname, 'wwwroot/dist')
